@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { environment } from '../../environments/environment';
 
 const JWTS_LOCAL_KEY = 'JWTS_LOCAL_KEY';
 const JWTS_ACTIVE_INDEX_KEY = 'JWTS_ACTIVE_INDEX_KEY';
@@ -9,15 +8,17 @@ const JWTS_ACTIVE_INDEX_KEY = 'JWTS_ACTIVE_INDEX_KEY';
   providedIn: 'root',
 })
 export class AuthService {
-  url = environment.auth0.url;
-  audience = environment.auth0.audience;
-  clientId = environment.auth0.clientId;
-  callbackURL = environment.auth0.callbackURL;
+  url = process.env['AUTH_URL'];
+  audience = process.env['AUDIENCE'];
+  clientId = process.env['CLIENT_ID'];
+  callbackURL = process.env['CALLBACK_URL'];
 
   token!: string;
   payload: any;
 
-  constructor() {}
+  constructor() {
+    console.log(`auth url ${this.url}`);
+  }
 
   build_login_link(callbackPath = '') {
     let link = 'https://';

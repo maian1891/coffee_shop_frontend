@@ -18,7 +18,7 @@ export interface Drink {
   providedIn: 'root',
 })
 export class DrinksService {
-  url = environment.apiServerUrl;
+  url = process.env['API_SERVER_URL'];
 
   public items: { [key: number]: Drink } = {};
   // = {

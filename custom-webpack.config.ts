@@ -1,4 +1,17 @@
-const Dotenv = require('dotenv-webpack');
+import { EnvironmentPlugin } from 'webpack';
+import { config } from 'dotenv';
+
+config();
+
 module.exports = {
-  plugins: [new Dotenv({ systemvars: true })],
+  plugins: [
+    new EnvironmentPlugin([
+      'API_SERVER_URL',
+      'AUDIENCE',
+      'AUTH_URL',
+      'CALLBACK_URL',
+      'CLIENT_ID',
+      'NODE_OPTIONS',
+    ]),
+  ],
 };

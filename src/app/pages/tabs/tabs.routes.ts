@@ -18,14 +18,14 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/drink-menu',
+        redirectTo: '/tabs/user',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/drink-menu',
+    redirectTo: '/tabs/user',
     pathMatch: 'full',
   },
 ];

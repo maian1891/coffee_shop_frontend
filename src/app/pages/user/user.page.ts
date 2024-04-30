@@ -38,5 +38,6 @@ export class UserPage implements OnInit {
 
   ngOnInit(): void {
     console.log('UserPage OnInit');
+    console.log(`url ${process.env['AUTH_URL']}`);
   }
 }
